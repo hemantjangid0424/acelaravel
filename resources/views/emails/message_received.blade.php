@@ -25,7 +25,7 @@ New Application - {{getAppName()}}
         </div>
         <div class="dr">
             <div class="dk">Message</div>
-            <div class="dv">{{ nl2br($application->message ?? '—') }}</div>
+            <div class="dv">{!! nl2br($application->message ?? '—') !!}</div>
         </div>
     </div>
 @endsection
