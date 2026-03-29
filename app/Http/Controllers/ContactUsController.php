@@ -26,7 +26,7 @@ class ContactUsController extends Controller
         $application = $this->modelObject::create($data);
         if ($application) {
             try {
-                Mail::to('rj.hemantjangid@gmail.com')
+                Mail::to(getInfoEmail())
                     ->send(new MessageReceived($application));
             } catch (\Throwable $e) {
                 dd($e->getMessage());
