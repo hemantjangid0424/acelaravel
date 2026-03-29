@@ -12,7 +12,7 @@ import './plugins/fontawesome';
 import '@fortawesome/fontawesome-free';
 
 // AOS (Animate On Scroll)
-// import AOS from 'aos';
+import AOS from 'aos';
 import './plugins/mobile-menu';
 
 import 'owl.carousel/dist/owl.carousel.js';
@@ -608,13 +608,13 @@ import 'waypoints/lib/jquery.waypoints';
         return false;
     });
 
-    // AOS.init({
-    //     offset: 100,
-    //     duration: 50,
-    //     easing: 'ease-in-out',
-    //     anchorPlacement: 'top-bottom',
-    //     disable: 'mobile',
-    // });
+    AOS.init({
+        offset: 100,
+        duration: 50,
+        easing: 'ease-in-out',
+        anchorPlacement: 'top-bottom',
+        disable: 'mobile',
+    });
 
     $('select').niceSelect();
 

@@ -9,7 +9,7 @@
                         </div>
                         <div
                             class="about1-img2 border5"
-                            
+                            data-aos="zoom-out" data-aos-duration="900"
                         >
                             <img src="/img/image/about1-img.png" alt="" />
                         </div>
@@ -20,12 +20,13 @@
                     <div class="about1-hadding hadding1">
                         <span
                             class="font-f-2"
-                            
+                            data-aos="fade-left" data-aos-duration="700"
                             >About AceTravels USA</span
                         >
                         <div class="space16"></div>
                         <h1
                             class="font-f-1"
+                            data-aos="fade-left" data-aos-duration="1000"
                         >
                             Ace Travels USA : Your trusted partner for seamless
                             travel experiences.
@@ -34,6 +35,7 @@
 
                         <div
                             class="about1-box"
+                            data-aos="fade-left" data-aos-duration="700"
                         >
                             <div class="">
                                 <div class="about-box-icon">
@@ -64,6 +66,7 @@
 
                         <div
                             class="about1-box"
+                            data-aos="fade-left" data-aos-duration="900"
                         >
                             <div class="">
                                 <div class="about-box-icon">

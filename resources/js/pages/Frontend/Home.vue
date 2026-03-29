@@ -7,5 +7,6 @@ import HeroCrousal from './Home/HeroCrousal.vue';
     <Layout>
         <HeroCrousal />
         <AboutUs />
+        
     </Layout>
 </template>
