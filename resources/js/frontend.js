@@ -12,8 +12,8 @@ import './plugins/fontawesome';
 import '@fortawesome/fontawesome-free';
 
 // AOS (Animate On Scroll)
-import AOS from 'aos';
 import 'aos/dist/aos.css';
+import AOS from 'aos';
 import './plugins/mobile-menu';
 
 import 'owl.carousel/dist/owl.carousel.js';
