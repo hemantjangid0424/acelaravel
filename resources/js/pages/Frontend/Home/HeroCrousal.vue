@@ -1,155 +1,121 @@
 <template>
-    <div class="carousel-wrapper">
-        <div class="carousel-track">
-            <!-- All slides live in the DOM at once; CSS opacity fades between them -->
-            <div
-                v-for="(slide, i) in slides"
-                :key="i"
-                class="slide"
-                :class="{ 'slide--active': i === currentIndex }"
-                :style="{ backgroundImage: `url(${slide.image})` }"
-            >
-                <div class="overlay" />
+  <div class="carousel-wrapper">
+    <div class="carousel-track">
+      <div
+        v-for="(slide, i) in slides"
+        :key="i"
+        class="slide"
+        :class="{ 'slide--active': i === currentIndex }"
+        :style="{ backgroundImage: `url(${slide.image})` }"
+      >
+        <div class="overlay" />
 
-                <div class="slide-content">
-                    <p class="eyebrow">
-                        <span class="accent-bar" />
-                        {{ slide.eyebrow }}
-                    </p>
-                    <h1 class="headline">{{ slide.headline }}</h1>
-                    <p class="description">{{ slide.description }}</p>
-                    <button class="cta-btn" @click="handleCta(slide)">
-                        {{ slide.ctaLabel }}
-                        <span class="btn-arrow">→</span>
-                    </button>
-                </div>
-            </div>
+        <div class="slide-content">
+          <p class="eyebrow">
+            <span class="accent-bar" />
+            {{ slide.eyebrow }}
+          </p>
 
-            <!-- Nav arrows sit above all slides -->
-            <div class="nav-arrows">
-                <button class="nav-btn" @click="prev" aria-label="Previous">
-                    ←
-                </button>
-                <button class="nav-btn" @click="next" aria-label="Next">
-                    →
-                </button>
-            </div>
+          <h1 class="headline">{{ slide.headline }}</h1>
 
-            <!-- Dot indicators -->
-            <div class="indicators">
-                <button
-                    v-for="(slide, i) in slides"
-                    :key="i"
-                    class="dot"
-                    :class="{ active: i === currentIndex }"
-                    @click="goTo(i)"
-                    :aria-label="`Go to slide ${i + 1}`"
-                />
-            </div>
+          <p class="description">{{ slide.description }}</p>
+
+          <button class="cta-btn" @click="handleCta(slide)">
+            {{ slide.ctaLabel }}
+            <span class="btn-arrow">→</span>
+          </button>
         </div>
+      </div>
+
+      <!-- Arrows -->
+      <div class="nav-arrows">
+        <button class="nav-btn" @click="prev">←</button>
+        <button class="nav-btn" @click="next">→</button>
+      </div>
+
+      <!-- Dots -->
+      <div class="indicators">
+        <button
+          v-for="(slide, i) in slides"
+          :key="i"
+          class="dot"
+          :class="{ active: i === currentIndex }"
+          @click="goTo(i)"
+        />
+      </div>
     </div>
+  </div>
 </template>
 
-<script>
-export default {
-    name: 'HeroCarousel',
+<script setup>
+import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { router } from '@inertiajs/vue3'
+// state
+const currentIndex = ref(0)
+const slides = ref([])
+let autoplayInterval = null
 
-    data() {
-        return {
-            currentIndex: 0,
-            autoplayInterval: null,
-            slides: [
-                {
-                    eyebrow: "It's all about you",
-                    headline:
-                        "North America's Premier Streamlined. OCI. VISA, Passport services. Fast Easy Convenient",
-                    description:
-                        'We simplify the complex process of obtaining OCI cards, VISAs, and passport renewals so you can focus on what matters — your journey.',
-                    ctaLabel: 'More About Us',
-                    ctaLink: '#about',
-                    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=1600&q=80',
-                },
-                {
-                    eyebrow: 'Trusted by thousands',
-                    headline:
-                        'Hassle-Free OCI Card Applications. Handled with Care.',
-                    description:
-                        'Our expert team manages every step of your OCI application — from document verification to final submission — with precision and speed.',
-                    ctaLabel: 'Apply for OCI',
-                    ctaLink: '#oci',
-                    image: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1600&q=80',
-                },
-                {
-                    eyebrow: 'Fast turnaround',
-                    headline: 'VISA Services That Keep Up With Your Schedule.',
-                    description:
-                        "Whether it's a tourist visa, business visa, or transit visa — we deliver fast, accurate processing so your plans never get delayed.",
-                    ctaLabel: 'Explore VISA Services',
-                    ctaLink: '#visa',
-                    image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1600&q=80',
-                },
-                {
-                    eyebrow: 'Nationwide coverage',
-                    headline:
-                        'Passport Renewal & New Applications Made Simple.',
-                    description:
-                        'Skip the lines and confusion. Our streamlined passport service ensures your documents are prepared correctly the first time, every time.',
-                    ctaLabel: 'Renew Your Passport',
-                    ctaLink: '#passport',
-                    image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80',
-                },
-                {
-                    eyebrow: 'Trusted by thousands',
-                    headline:
-                        'Hassle-Free OCI Card Applications. Handled with Care.',
-                    description:
-                        'Our expert team manages every step of your OCI application — from document verification to final submission — with precision and speed.',
-                    ctaLabel: 'Apply for OCI',
-                    ctaLink: '#oci',
-                    image: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1600&q=80',
-                },
-            ],
-        };
-    },
+// methods
+const next = () => {
+  currentIndex.value = (currentIndex.value + 1) % slides.value.length
+  resetAutoplay()
+}
 
-    mounted() {
-        this.startAutoplay();
-    },
+const prev = () => {
+  currentIndex.value =
+    (currentIndex.value - 1 + slides.value.length) % slides.value.length
+  resetAutoplay()
+}
 
-    beforeUnmount() {
-        this.stopAutoplay();
-    },
+const goTo = (i) => {
+  currentIndex.value = i
+  resetAutoplay()
+}
 
-    methods: {
-        next() {
-            this.currentIndex = (this.currentIndex + 1) % this.slides.length;
-            this.resetAutoplay();
-        },
-        prev() {
-            this.currentIndex =
-                (this.currentIndex - 1 + this.slides.length) %
-                this.slides.length;
-            this.resetAutoplay();
-        },
-        goTo(i) {
-            this.currentIndex = i;
-            this.resetAutoplay();
-        },
-        handleCta(slide) {
-            this.$emit('cta-clicked', slide);
-        },
-        startAutoplay() {
-            this.autoplayInterval = setInterval(this.next, 6000);
-        },
-        stopAutoplay() {
-            clearInterval(this.autoplayInterval);
-        },
-        resetAutoplay() {
-            this.stopAutoplay();
-            this.startAutoplay();
-        },
-    },
-};
+const handleCta = () => {
+  router.visit('/about-us')
+}
+
+const startAutoplay = () => {
+  autoplayInterval = setInterval(next, 6000)
+}
+
+const stopAutoplay = () => {
+  clearInterval(autoplayInterval)
+}
+
+const resetAutoplay = () => {
+  stopAutoplay()
+  startAutoplay()
+}
+
+// lifecycle
+onMounted(() => {
+  const images = [
+    '/img/home/slideimage1.webp',
+    '/img/home/slideimage2.webp',
+    '/img/home/slideimage3.webp',
+    '/img/home/slideimage4.webp',
+    '/img/home/slideimage5.webp',
+    '/img/home/slideimage6.webp',
+  ]
+
+  slides.value = images.map((img) => ({
+    eyebrow: "It's all about you",
+    headline:
+      'North America’s Premier Streamlined OCI, VISA, Passport services',
+    description: 'Fast, Easy, Convenient',
+    ctaLabel: 'More About Us',
+    ctaLink: '#about',
+    image: img,
+  }))
+
+  startAutoplay()
+})
+
+onBeforeUnmount(() => {
+  stopAutoplay()
+})
 </script>
 
 <style scoped>
