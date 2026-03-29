@@ -2,6 +2,7 @@
 @section('title')
 New Application - {{getAppName()}}
 @endsection
+@dd($application)
 @section('hero')
     <div class="eyebrow"><span class="eyebrow-line"></span>Admin Alert</div>
     <div class="hdr-h1">New Message Received 📋</div>
