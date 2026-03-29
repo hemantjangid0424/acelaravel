@@ -859,12 +859,15 @@
     ]
   },
   "resources/js/frontend.js": {
-    "file": "assets/frontend-CEa2sWfR.js",
+    "file": "assets/frontend-Df4jH1zX.js",
     "name": "frontend",
     "src": "resources/js/frontend.js",
     "isEntry": true,
     "imports": [
       "__commonjsHelpers-DsqdWQfm.js"
+    ],
+    "css": [
+      "assets/aos-DvB2Xm2x.css"
     ]
   },
   "resources/js/pages/Admin/ContactUs/List.vue": {
