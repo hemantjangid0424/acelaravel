@@ -89,7 +89,7 @@ hr.d{border:none;border-top:1.5px solid #e8eaf2;margin:24px 0}
 .ftr-links{display:flex;flex-wrap:wrap;justify-content:center;padding-top:16px;gap:0}
 .fl{font-size:11px;font-weight:600;color:black;text-decoration:none;padding:0 12px;border-right:1px solid rgba(255,255,255,.09)}
 .fl:last-child{border-right:none}
-.ftr-copy{text-align:center;font-size:10.5px;color:black;margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,.06)}
+.ftr-copy{text-align:center;font-size:10.5px;color:black;border-top:1px solid rgba(255,255,255,.06)}
 
 @media screen and (max-width:600px){
 .outer{padding:18px 8px 36px}
@@ -109,16 +109,6 @@ hr.d{border:none;border-top:1.5px solid #e8eaf2;margin:24px 0}
 
 {{-- HEADER --}}
 <div class="hdr">
-  <div class="hdr-noise"></div>
-  <div class="hdr-glow"></div>
-  <div class="hdr-top">
-    
-    <img src="{{asset('brand.webp')}}" alt="AceTravels USA" class="logo-img"/>
-    <div class="hdr-meta">
-      
-      <div class="hdr-meta-val">acetravelsusa.com</div>
-    </div>
-  </div>
   @hasSection('hero')
   <div class="hdr-hero">@yield('hero')</div>
   @endif
@@ -134,14 +124,6 @@ hr.d{border:none;border-top:1.5px solid #e8eaf2;margin:24px 0}
 
 {{-- FOOTER --}}
 <div class="ftr">
-  <div class="ftr-top">
-     <img src="{{asset('brand.webp')}}" alt="AceTravels USA" class="logo-img"/>
-    <div class="ftr-info">
-      2025 Rockledge Dr #130, Rockledge, United States<br>
-      <a href="tel:+17323479222">+1 732 347 9222</a> &nbsp;·&nbsp;
-      <a href="mailto:{{getInfoEmail()}}">{{getInfoEmail()}}</a>
-    </div>
-  </div>
   <div class="ftr-copy">&copy; {{ date('Y') }} {{getAppName()}}. All Rights Reserved.</div>
 </div>
 
