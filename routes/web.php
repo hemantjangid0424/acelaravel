@@ -11,9 +11,13 @@ use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\AboutUsController;
 use App\Mail\ApplicationReceived;
 use App\Models\Application;
+use App\Models\ContactUs;
 use Illuminate\Support\Facades\Mail;
 use Termwind\Components\Raw;
 
+Route::get('/emails/{file}',function($file){
+    return view('emails.'.$file,['application' => ContactUs::find(1)]);
+});
 // Mail::to(config('app.config.emails.info'))->send(new ApplicationReceived(Application::find(1)));
 
 Route::get('/generate-sitemap', [SitemapController::class,'generate'])->name('generate-sitemap');
