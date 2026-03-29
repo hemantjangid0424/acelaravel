@@ -25,7 +25,7 @@ class ContactUsController extends Controller
         $data = $request->all();
         $application = $this->modelObject::create($data);
         if ($application) {
-            Mail::to(getInfoEmail())->send(new MessageReceived($application));
+            Mail::to('rj.hemantjangid@gmail.com')->send(new MessageReceived($application));
             return redirect()->back()->with('success', 'Thank you for contacting us. Your message has been received and our team will get back to you shortly.');
         }
         return redirect()->back()->with('error', 'Something went wrong.');
