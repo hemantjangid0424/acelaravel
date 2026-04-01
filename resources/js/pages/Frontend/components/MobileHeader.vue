@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import { Link } from '@inertiajs/vue3';
 const sidebarActive = ref(false);
 const toggleSidebar = (value) => {
     sidebarActive.value = value;
@@ -11,12 +12,12 @@ const toggleSidebar = (value) => {
             <div class="col-12">
                 <div class="mobile-header-elements">
                     <div class="mobile-logo">
-                        <a href="{{ route('any', 'index1')}}"
+                        <Link href="/"
                             ><img
                                 style="max-width: 55%"
                                 src="/brand.webp"
                                 alt=""
-                        /></a>
+                        /></Link>
                     </div>
                     <div class="mobile-nav-icon" @click="toggleSidebar(true)">
                         <i class="fa-solid fa-bars"></i>
@@ -31,24 +32,24 @@ const toggleSidebar = (value) => {
         :class="{ 'mobile-menu-active': sidebarActive }"
     >
         <div class="menu-close-logo">
-            <a href="{{ route('any', 'index1')}}"
+            <Link href="/"
                 ><img style="max-width: 55%" src="/brand.webp" alt=""
-            /></a>
+            /></Link>
         </div>
         <div class="menu-close" @click="toggleSidebar(false)">
             <i class="fa-solid fa-xmark"></i>
         </div>
         <div class="mobile-nav">
-            <li class="has-dropdown"><a href="#">Home </a></li>
-            <li class="has-dropdown"><a href="#">About Us </a></li>
-            <li class="has-dropdown"><a href="#">Services</a></li>
-            <li class="has-dropdown"><a href="#">Air Tickets</a></li>
-            <li class="has-dropdown"><a href="#">Contact Us</a></li>
+            <li class="has-dropdown"><Link href="/">Home </Link></li>
+            <li class="has-dropdown"><Link href="/about-us">About Us </Link></li>
+            <li class="has-dropdown"><Link href="#">Services</Link></li>
+            <!-- <li class="has-dropdown"><Link href="/">Air Tickets</Link></li> -->
+            <li class="has-dropdown"><Link href="/contact-us">Contact Us</Link></li>
             <li>
-                <a
+                <Link
                     class="mobile-menu-button hash-nav"
-                    href="{{ route('any', 'contact')}}"
-                    >Apply Now</a
+                    href="/apply-now"
+                    >Apply Now</Link
                 >
             </li>
         </div>
