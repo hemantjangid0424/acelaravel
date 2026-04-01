@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
@@ -47,8 +48,14 @@ class Service extends Model
     }
 
     public function getAll()
-    {
-        return self::where('status','=',1)->latest()->get();
+    { 
+        $records =  self::where('status','=',1)->latest()->get();
+        foreach($records as $service) {
+            if($service->image) {
+                $service->image = Storage::disk('public')->url('services/' . $service->image);
+            }
+        }
+        return $records;
     }
 
     public function deleteById($id)

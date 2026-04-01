@@ -42,7 +42,7 @@ const toggleSidebar = (value) => {
         <div class="mobile-nav">
             <li class="has-dropdown"><Link href="/">Home </Link></li>
             <li class="has-dropdown"><Link href="/about-us">About Us </Link></li>
-            <li class="has-dropdown"><Link href="#">Services</Link></li>
+            <li class="has-dropdown"><Link href="/services">Services</Link></li>
             <!-- <li class="has-dropdown"><Link href="/">Air Tickets</Link></li> -->
             <li class="has-dropdown"><Link href="/contact-us">Contact Us</Link></li>
             <li>

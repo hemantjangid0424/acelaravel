@@ -32,6 +32,8 @@ Route::resource('contact-us', ContactUsController::class);
 Route::get('/apply-now', [ApplyNowController::class,'index'])->name('apply-now');
 Route::post('/apply-now', [ApplyNowController::class,'submit'])->name('apply-now.submit');
 
+
+Route::get('/services', [ServiceController::class,'list'])->name('services.index');
 Route::get('/services/details/{url}', [ServiceController::class,'details'])->name('service-details');
 
 require __DIR__.'/settings.php';

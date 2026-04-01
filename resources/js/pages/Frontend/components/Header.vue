@@ -51,12 +51,12 @@ const services = computed(() => page.props.services);
                                         <Link href="/about-us">About Us</Link>
                                     </li>
                                     <li class="has-dropdown">
-                                        <a href="#"
+                                        <Link href="/services"
                                             >Services
                                             <i
                                                 class="fa-solid fa-angle-down"
                                             ></i
-                                        ></a>
+                                        ></Link>
                                         <ul
                                             class="sub-menu"
                                             style="width: 280px"

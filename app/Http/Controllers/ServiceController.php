@@ -8,6 +8,13 @@ use Inertia\Inertia;
 
 class ServiceController extends Controller
 {
+
+    public function list(Request $request)
+    {
+        $serviceObj = new \App\Models\Service;
+        return Inertia::render('Frontend/Service/Index',['service' => $serviceObj->getAll()]);
+    }
+
     public function details(Request $request,$url) 
     {
         $serviceObj = new \App\Models\Service;
