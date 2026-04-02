@@ -77,7 +77,7 @@ const services = computed(() => page.props.services);
                                     </li>
                                     <li class="mega-dropdawn">
                                         <Link
-                                            href="/services/details/air-tickets"
+                                            href="/services/details/book-best-price-international-air-tickets-from-usa"
                                             >Air Tickets</Link
                                         >
                                     </li>
