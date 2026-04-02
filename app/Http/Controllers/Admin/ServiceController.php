@@ -17,7 +17,7 @@ class ServiceController extends Controller
         $this->modelObject = new Service();
     }
 
-    public function index()
+    public function adminIndex()
     {
         $services = $this->modelObject->getAll();
         return Inertia::render('Admin/Service/List', ['services' => $services]);

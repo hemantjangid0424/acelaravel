@@ -22,7 +22,7 @@ import {
 } from '@/components/ui/sidebar';
 import { dashboard } from '@/routes';
 
-import {index as Services} from '@/routes/services';
+import {adminIndex as Services} from '@/routes/services';
 import { type NavItem } from '@/types';
 import AppLogo from './AppLogo.vue';
 import {index as AdminContactUs} from '@/routes/contacts';

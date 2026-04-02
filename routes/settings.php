@@ -16,7 +16,13 @@ Route::group(['prefix' => 'admin'], function () {
         Route::redirect('settings', '/settings/profile');
         Route::get('settings/profile', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::patch('settings/profile', [ProfileController::class, 'update'])->name('profile.update');
-        Route::resource('services', ServiceController::class);
+        Route::get('services', [ServiceController::class, 'adminIndex'])->name('services.adminIndex');
+        Route::get('services/create', [ServiceController::class, 'create'])->name('services.create');
+        Route::post('services', [ServiceController::class, 'store'])->name('services.store');
+        Route::get('services/{service}', [ServiceController::class, 'show'])->name('services.show');
+        Route::get('services/{service}/edit', [ServiceController::class, 'edit'])->name('services.edit');
+        Route::match(['put','patch'], 'services/{service}', [ServiceController::class, 'update'])->name('services.update');
+        Route::delete('services/{service}', [ServiceController::class, 'destroy'])->name('services.destroy');
         Route::resource('inquiries', InquiriesController::class);
         Route::resource('contacts', ContactUsController::class);
     });
