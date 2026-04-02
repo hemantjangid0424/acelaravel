@@ -27,13 +27,11 @@ if (!function_exists('getApplicationNumber')) {
 if (!function_exists('getFormattedApplicationData')) {
     function getFormattedApplicationData($data)
     {
-        $serviceObj = new Service();
         $data->dob = \Carbon\Carbon::parse($data->dob)->toDateString();
         $data->spouse_dob = \Carbon\Carbon::parse($data->spouse_dob)->toDateString();
         $data->sex = Str::ucfirst($data->sex);
         $data->birth_city_state = Str::ucfirst($data->birth_city_state);
-        $service = $serviceObj->find($data->service_applying_for);
-        $data->service_applying_for = $service->menu_name;
+        $data->service_applying_for = $data->service_applying_for;
         $data->country_residence = Str::ucfirst($data->country_residence);
         $data->state_residence = Str::ucfirst($data->state_residence);
         $data->profession = Str::ucwords($data->profession);
