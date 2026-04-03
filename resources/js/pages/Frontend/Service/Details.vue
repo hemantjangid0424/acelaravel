@@ -108,7 +108,7 @@ const canonical = computed(() => props.service.canonical || '');
       </div>
 
       <!-- TABS -->
-      <Tabs v-model:activeKey="activeKey">
+      <Tabs v-model:activeKey="activeKey" style="margin-top: 10px;">
         <TabPane :key="1" tab="Overview">
           <div v-html="service.description"></div>
         </TabPane>
