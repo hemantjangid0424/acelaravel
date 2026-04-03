@@ -1,62 +1,110 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
     <url>
-    <loc>http://127.0.0.1:8000/</loc>
-    <lastmod>2026-03-27T16:54:08+00:00</lastmod>
+    <loc>https://dev.acetravelsusa.com/</loc>
+    <lastmod>2026-04-03T16:33:12+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
             </url>
     <url>
-    <loc>http://127.0.0.1:8000/about-us</loc>
-    <lastmod>2026-03-27T16:54:08+00:00</lastmod>
+    <loc>https://dev.acetravelsusa.com/about-us</loc>
+    <lastmod>2026-04-03T16:33:12+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
             </url>
     <url>
-    <loc>http://127.0.0.1:8000/contact-us</loc>
-    <lastmod>2026-03-27T16:54:08+00:00</lastmod>
+    <loc>https://dev.acetravelsusa.com/contact-us</loc>
+    <lastmod>2026-04-03T16:33:12+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
             </url>
     <url>
-    <loc>http://127.0.0.1:8000/apply-now</loc>
-    <lastmod>2026-03-27T16:54:08+00:00</lastmod>
+    <loc>https://dev.acetravelsusa.com/apply-now</loc>
+    <lastmod>2026-04-03T16:33:12+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
             </url>
     <url>
-    <loc>http://127.0.0.1:8000/services/details/new-oci-card</loc>
-    <lastmod>2026-03-27T16:29:05+00:00</lastmod>
+    <loc>https://dev.acetravelsusa.com/services/details/overseas-citizen-of-india-oci</loc>
+    <lastmod>2026-04-01T18:08:29+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
             </url>
     <url>
-    <loc>http://127.0.0.1:8000/services/details/asdasdsad</loc>
-    <lastmod>2026-03-27T16:23:14+00:00</lastmod>
+    <loc>https://dev.acetravelsusa.com/services/details/indian-evisa-services-in-usa-apply-renew-indian-visa</loc>
+    <lastmod>2026-04-01T18:16:19+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
             </url>
     <url>
-    <loc>http://127.0.0.1:8000/services/details/maanu</loc>
-    <lastmod>2026-03-27T16:45:51+00:00</lastmod>
+    <loc>https://dev.acetravelsusa.com/services/details/immigration-assistance-services-in-usa</loc>
+    <lastmod>2026-04-01T18:19:04+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
             </url>
     <url>
-    <loc>http://127.0.0.1:8000/services/details/amma</loc>
-    <lastmod>2026-03-27T16:49:41+00:00</lastmod>
+    <loc>https://dev.acetravelsusa.com/services/details/oci-renewal-process-renew-your-oci-card</loc>
+    <lastmod>2026-04-01T18:29:33+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
             </url>
     <url>
-    <loc>http://127.0.0.1:8000/services/details/ilmt</loc>
-    <lastmod>2026-03-27T16:50:15+00:00</lastmod>
+    <loc>https://dev.acetravelsusa.com/services/details/indian-regular-visa-services-in-usa</loc>
+    <lastmod>2026-04-01T18:35:31+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
             </url>
     <url>
-    <loc>http://127.0.0.1:8000/services/details/ajaama</loc>
-    <lastmod>2026-03-27T16:51:06+00:00</lastmod>
+    <loc>https://dev.acetravelsusa.com/services/details/oci-registration-in-lieu-of-pio-card</loc>
+    <lastmod>2026-04-01T18:50:38+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+            </url>
+    <url>
+    <loc>https://dev.acetravelsusa.com/services/details/us-visa-application-from-india</loc>
+    <lastmod>2026-04-01T18:53:48+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+            </url>
+    <url>
+    <loc>https://dev.acetravelsusa.com/services/details/b1b2-visa-extension-usa</loc>
+    <lastmod>2026-04-01T18:59:35+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+            </url>
+    <url>
+    <loc>https://dev.acetravelsusa.com/services/details/indian-passport-services-in-usa-renewal-oci-help</loc>
+    <lastmod>2026-04-01T19:05:08+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+            </url>
+    <url>
+    <loc>https://dev.acetravelsusa.com/services/details/canada-visa-for-indian-citizens-in-usa-apply-visitor-visa-with</loc>
+    <lastmod>2026-04-01T19:08:42+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+            </url>
+    <url>
+    <loc>https://dev.acetravelsusa.com/services/details/other-indian-consular-services-usa</loc>
+    <lastmod>2026-04-01T19:35:39+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+            </url>
+    <url>
+    <loc>https://dev.acetravelsusa.com/services/details/renounce-indian-citizenship</loc>
+    <lastmod>2026-04-01T19:38:55+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+            </url>
+    <url>
+    <loc>https://dev.acetravelsusa.com/services/details/schengen-visa-services-from-usa</loc>
+    <lastmod>2026-04-01T19:42:05+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+            </url>
+    <url>
+    <loc>https://dev.acetravelsusa.com/services/details/book-best-price-international-air-tickets-from-usa</loc>
+    <lastmod>2026-04-01T19:52:02+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
             </url>

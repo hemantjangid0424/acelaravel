@@ -1,129 +1,129 @@
 <script setup lang="ts">
 import { usePage, Head, Link } from '@inertiajs/vue3';
 import { Image, Tabs, TabPane } from 'ant-design-vue';
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import Layout from '../components/Layout.vue';
 
-const page = usePage();
-type Props = { service: object };
-const activeKey = ref(1);
+interface Service {
+  title?: string;
+  menu_name: string;
+  meta_description?: string;
+  canonical?: string;
+  image?: string;
+  description?: string;
+  documents_required?: string;
+  fees_and_charges?: string;
+}
 
-defineProps<Props>();
+interface PageProps {
+  name: string;
+}
+
+const page = usePage<PageProps>();
+const props = defineProps<{ service: Service }>();
+
+const activeKey = ref<number>(1);
+
+// ✅ Core SEO values
+const title = computed(() => props.service.title || props.service.menu_name);
+const brand = computed(() => page.props.name || '');
+
+const fullTitle = computed(() => `${title.value} | ${brand.value}`);
+
+
+const description = computed(() =>
+  props.service.meta_description || `${title.value} - ${brand.value}`
+);
+
+const canonical = computed(() => props.service.canonical || '');
 </script>
+
 <template>
-    <Layout>
-        <Head>
-            <title>
-                {{ service.title != '' ? service.title : service.menu_name }} -
-                {{ page.props.name }}
-            </title>
-            <meta name="description" :content="service.meta_description" />
-            <meta name="robots" content="index, follow" />
-            <link rel="canonical" :href="service.canonical" />
-        </Head>
-        <div
-            class="page-hero-area _relative"
-            style="background-image: url(/img/bg/page-bg.png)"
-        >
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 m-auto text-center">
-                        <div class="page-hero-hadding">
-                            <h1>
-                                {{
-                                    service.title != ''
-                                        ? service.title
-                                        : service.menu_name
-                                }}
-                                <br />
-                                - {{ page.props.name }}
-                            </h1>
-                            <div class="space16"></div>
-                            <div
-                                class="page-hero-p"
-                                style="margin-bottom: 20px"
-                            >
-                                <Link href="/">Home</Link>
-                                <span
-                                    ><i class="fa-solid fa-angle-right"></i
-                                ></span>
-                                <Link>Services</Link>
-                                <span
-                                    ><i class="fa-solid fa-angle-right"></i
-                                ></span>
-                                <p style="text-transform: uppercase">
-                                    {{ service.menu_name }}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+  <Layout>
+    <Head>
+      <!-- ✅ PRIMARY SEO -->
+      <title>{{ fullTitle }}</title>
+      <meta name="description" :content="description" />
+      <meta name="robots" content="index, follow" />
+      <link rel="canonical" :href="canonical" />
+
+      <meta property="og:type" content="website" />
+      <meta property="og:title" :content="fullTitle" />
+      <meta property="og:description" :content="description" />
+      <meta property="og:image" v-if="service.image" :content="service.image" />
+      <meta property="og:url" :content="canonical" />
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" :content="fullTitle" />
+      <meta name="twitter:description" :content="description" />
+      <meta name="twitter:image" v-if="service.image" :content="service.image" />
+      
+    </Head>
+
+    <!-- HERO -->
+    <div class="page-hero-area _relative" style="background-image: url(/img/bg/page-bg.png)">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 m-auto text-center">
+            <div class="page-hero-hadding">
+
+              <!-- ✅ H1 -->
+              <h1>{{ title }}</h1>
+
+              <!-- ✅ Breadcrumb -->
+              <div class="page-hero-p" style="margin-bottom: 20px">
+                <Link href="/">Home</Link>
+                <span> › </span>
+
+                <Link href="/services">Services</Link>
+                <span> › </span>
+
+                <span>{{ service.menu_name }}</span>
+              </div>
+
             </div>
-            <img
-                class="page-hero-element1 aniamtion-key-2"
-                src="/img/shapes/page-header-element1.svg"
-                alt=""
-            />
-            <img
-                class="page-hero-element2 aniamtion-key-3"
-                src="/img/shapes/page-header-element2.svg"
-                alt=""
-            />
-            <img
-                class="page-hero-element3 aniamtion-key-1"
-                src="/img/shapes/page-header-element1.svg"
-                alt=""
-            />
-            <img
-                class="page-hero-element4 aniamtion-key-2"
-                src="/img/shapes/page-header-element2.svg"
-                alt=""
-            />
+          </div>
         </div>
-        <div>
-            <div class="container p-5">
-                <div class="home2-header-buttons" style="margin-bottom: 20px">
-                    <div class="button2-all">
-                        <Link
-                            href="/apply-now"
-                            style="width: 100%"
-                            class="theme-btn1 font-f-2"
-                            >Apply Now</Link
-                        >
-                    </div>
-                </div>
-                
-                <div
-                    v-if="service.image"
-                    class="row"
-                    style="
-                        margin-bottom: 20px;
-                        display: flex;
-                        justify-content: space-around;
-                    "
-                >
-                    <Image
-                        :preview="false"
-                        :src="service.image"
-                        width="100%"
-                        :height="500"
-                        style="width: 100%; object-fit: contain;"
-                    />
-                </div>
-                <Tabs v-model:activeKey="activeKey">
-                    <TabPane :key="1" tab="Overview">
-                        <div v-html="service.description"></div>
-                    </TabPane>
-                    <TabPane :key="2" tab="Documents Required">
-                        <div v-html="service.documents_required"></div>
-                    </TabPane>
-                    <TabPane :key="3" tab="Fees & Charges">
-                        <div v-html="service.fees_and_charges"></div>
-                    </TabPane>
-                </Tabs>
-            </div>
-        </div>
-    </Layout>
+      </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="container p-5">
+
+      <!-- CTA -->
+      <Link href="/apply-now" class="theme-btn1 font-f-2" style="width: 100%">
+        Apply Now
+      </Link>
+
+      <!-- IMAGE -->
+      <div v-if="service.image" class="row" style="margin: 20px 0">
+        <Image
+          :preview="false"
+          :src="service.image"
+          :alt="title"
+          width="100%"
+          :height="500"
+          style="object-fit: contain;"
+        />
+      </div>
+
+      <!-- TABS -->
+      <Tabs v-model:activeKey="activeKey">
+        <TabPane :key="1" tab="Overview">
+          <div v-html="service.description"></div>
+        </TabPane>
+
+        <TabPane :key="2" tab="Documents Required">
+          <div v-html="service.documents_required"></div>
+        </TabPane>
+
+        <TabPane :key="3" tab="Fees & Charges">
+          <div v-html="service.fees_and_charges"></div>
+        </TabPane>
+      </Tabs>
+
+    </div>
+  </Layout>
 </template>
 <style>
 .ant-tabs-tab {
