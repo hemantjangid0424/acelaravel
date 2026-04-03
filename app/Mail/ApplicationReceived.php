@@ -29,7 +29,7 @@ class ApplicationReceived extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'New Application Received',
+            subject: '!IMPORTANT : New Application Received',
         );
     }
 

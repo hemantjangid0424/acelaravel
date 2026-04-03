@@ -28,7 +28,7 @@ class ApplicationThankyou extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Application Thankyou',
+            subject: '!IMPORTANT : Thankyou for your Application',
         );
     }
 

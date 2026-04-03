@@ -30,7 +30,7 @@ class MessageReceived extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Message Received',
+            subject: '!IMPORTANT : New Message Received',
         );
     }
 
