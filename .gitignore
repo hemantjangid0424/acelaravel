@@ -1,6 +1,7 @@
 /.phpunit.cache
 /bootstrap/ssr
 /public/hot
+/public/sitemap.xml
 /public/storage
 /storage/*.key
 /storage/pail
