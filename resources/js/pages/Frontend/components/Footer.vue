@@ -146,7 +146,7 @@ const services = computed(() => page.props.services);
             <div class="row align-items-center copyright2">
                 <div class="col-lg-12 text-center hadding1">
                     <p class="font-f-2">
-                        © 2025 {{page.props.appName}}. All Rights Reserved.
+                        © {{ new Date().getFullYear() }} {{page.props.appName}}. All Rights Reserved.
                     </p>
                 </div>
             </div>
