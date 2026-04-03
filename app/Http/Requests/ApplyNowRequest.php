@@ -40,7 +40,7 @@ class ApplyNowRequest extends FormRequest
             'spouse_profession'    => 'required_if:marital_status,married|nullable|string|max:100',
             'spouse_nationality'   => 'required_if:marital_status,married|nullable|string|max:100',
             'spouse_dob'           => 'required_if:marital_status,married|nullable|date',
-            'recaptcha_token'      => 'required|string',
+            // 'recaptcha_token'      => 'required|string',
             'port_entry_india'          => 'nullable|string|max:150',
             'port_exit_india'           => 'nullable|string|max:150',
             'reference_address_india'   => 'nullable|string',
@@ -177,14 +177,14 @@ class ApplyNowRequest extends FormRequest
     // ── Runs AFTER rules() pass ──────────────────────────────────────────
     public function withValidator($validator): void
     {
-        $validator->after(function ($validator) {
-            if (! $this->verifyCaptcha()) {
-                $validator->errors()->add(
-                    'recaptcha_token',
-                    'Captcha verification failed. Please tick the "I\'m not a robot" box and try again.'
-                );
-            }
-        });
+        // $validator->after(function ($validator) {
+        //     if (! $this->verifyCaptcha()) {
+        //         $validator->errors()->add(
+        //             'recaptcha_token',
+        //             'Captcha verification failed. Please tick the "I\'m not a robot" box and try again.'
+        //         );
+        //     }
+        // });
     }
 
     private function verifyCaptcha(): bool

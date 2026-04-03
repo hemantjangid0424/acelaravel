@@ -125,7 +125,7 @@ return [
     
     'config' => [
         'emails' => [
-            'info' => 'rj.hemantjangid@gmail.com'
+            'info' => 'info@acetravelsusa.com'
         ]
     ]
 ];
